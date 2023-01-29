@@ -1,0 +1,41 @@
+﻿@page
+@model BcasDigitalLibrary.Pages.Books.IndexModel
+@{
+}
+
+<br>
+<h2 class="text-light">
+    List of Books
+</h2>
+<a class='btn btn-primary btn-sm' href='/Books/Create'>New Book</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th class="text-light">ID</th>
+            <th class="text-light">Name</th>
+            <th class="text-light">Author</th>
+            <th class="text-light">Publication</th>
+            <th class="text-light">Category</th>
+            <th class="text-light">Created At</th>
+            <th class="text-light">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model.listBooks)
+        {
+            <tr>
+               
+                <td class="text-light">@item.id</td>
+                <td class="text-light">@item.name</td>
+                <td class="text-light">@item.author</td>
+                <td class="text-light">@item.publication</td>
+                <td class="text-light">@item.category</td>
+                <td class="text-light">@item.created_at</td>
+                <td>
+                    <a class="btn btn-primary btn-sm" href="/Books/Edit?id=@item.id">Edit</a>
+                    <a class="btn btn-danger btn-sm" href="/Books/Delete?id=@item.id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

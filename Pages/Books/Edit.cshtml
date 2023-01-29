@@ -1,0 +1,63 @@
+﻿@page
+@model BcasDigitalLibrary.Pages.Books.EditModel
+@{
+}
+
+<br>
+<h2 class= "text-light">Edit Book</h2>
+
+@if (Model.errorMessage.Length > 0) {
+    <div class="alert alert-warning alert-dissmissible fade show" role="alert">
+        <strong>@Model.errorMessage</strong>
+        <button type="button" class="btn-close" data-bs-dissmiss="alert" aria-label="Close"></button>
+    </div>
+}
+
+<form method="POST">
+    <input type="hidden" name="id" value=@Model.booksInfo.id>
+    <div class="row mb-3">
+        <label class="col-sm-3 text-light col-form-label">Name</label>
+        <div class="col-sm-6">
+            <input type="text" autocomplete="off" class="form-control" name="name" value="@Model.booksInfo.name">
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label class="col-sm-3 text-light col-form-label">Author</label>
+        <div class="col-sm-6">
+            <input type="text" autocomplete="off" class="form-control" name="author" value="@Model.booksInfo.author">
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label class="col-sm-3 text-light col-form-label">Publication</label>
+        <div class="col-sm-6">
+            <input type="text" autocomplete="off" class="form-control" name="publication" value="@Model.booksInfo.publication">
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label class="col-sm-3 text-light col-form-label">Category</label>
+        <div class="col-sm-6">
+            <input type="text" autocomplete="off" class="form-control" name="category" value="@Model.booksInfo.category">
+        </div>
+    </div>
+
+    @if (Model.successMessage.Length > 0) {
+        <div class="row mb-3">
+            <div class="col-sm-9">
+                <div class="alert alert-success alert-dissmissible fade show" role="alert">
+                    <strong>@Model.successMessage</strong>
+                    <button type="button" class="btn-close" data-bs-dissmiss="alert" aria-label="Close"></button>
+                </div>
+
+            </div>
+        </div>
+    }
+
+    <div class="row mb-3">
+        <div class="offset-sm-3 col-sm-3 d-block d-grid">
+            <button type="submit" class="btn btn-success">Save</button>
+        </div>
+        <div class="col-sm-3 d-grid">
+            <a class="btn btn-outline-danger" href="/" role="button">Cancel</a>
+        </div>
+    </div>
+</form>
